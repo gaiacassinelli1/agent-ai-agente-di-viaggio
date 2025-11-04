@@ -263,4 +263,10 @@ Per domande o problemi:
 
 ---
 
-**Fatto con ❤️ usando OpenAI GPT-4, LangChain e Flask**
+**Fatto con ❤️ da:**
+- [Gaia Cassinelli](https://github.com/gaiacassinelli1)
+- [Sergio Ghezzi](https://github.com/sergioghez)
+- [Benedetta Milossevich](https://github.com/benedettami)
+- [Barbara Geroli](https://github.com/BarbaraGeroli)
+- [Sharon Burgo](https://github.com/sharonburg)
+- [Mattia Stefanizzi](https://github.com/luxmattiastef)
