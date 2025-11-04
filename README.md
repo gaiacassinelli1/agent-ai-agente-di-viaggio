@@ -1,1 +1,266 @@
-# agent-ai-travel-agency
+# 🌍 Travel AI Assistant
+
+Assistente di viaggio intelligente basato su AI che aiuta a pianificare viaggi personalizzati.
+
+## 📁 Struttura del Progetto
+
+```
+ai/
+├── 📄 main.py                      # Entry point CLI
+├── 📄 main_with_login.py          # Entry point CLI con autenticazione
+├── 📄 api_flask.py                # API REST Flask
+├── 📄 web_interface.html          # Interfaccia web
+│
+├── 📂 agents/                     # Agenti AI specializzati
+│   ├── QueryParser.py
+│   ├── DataCollector.py
+│   ├── RAGManager.py
+│   └── PlanGenerator.py
+│
+├── 📂 core/                       # Logica centrale
+│   ├── orchestrator.py            # Coordinatore degli agenti
+│   ├── session_manager.py         # Gestione sessioni utente
+│   └── config.py                  # Configurazioni
+│
+├── 📂 venv/                       # Virtual environment
+│   ├── 📂 login/                  # Sistema di autenticazione
+│   │   ├── database.py            # Gestione database SQLite
+│   │   ├── auth_manager.py        # Autenticazione utenti
+│   │   ├── trip_manager.py        # Gestione viaggi
+│   │   └── auth_cli.py            # CLI per login
+│   │
+│   └── 📂 core/                   # Core duplicato (per imports)
+│
+├── 📂 test/                       # File di test ed esempi
+│   ├── test_api.py
+│   ├── test_api_simple.py
+│   ├── frontend_example_react.jsx
+│   ├── example_integration.py
+│   └── test_login.py
+│
+├── 📂 document/                   # Documentazione
+│   ├── API_README.md
+│   └── GUIDA_FRONTEND.md
+│
+└── 📄 travel_assistant.db         # Database SQLite
+
+```
+
+## 🚀 Quick Start
+
+### 1. Installazione
+
+```bash
+# Installa le dipendenze
+pip install -r requirements.txt
+```
+
+### 2. Configurazione
+
+Crea un file `.env` nella root del progetto:
+
+```env
+OPENAI_API_KEY=your-api-key-here
+TAVILY_API_KEY=your-tavily-key-here
+FLASK_SECRET_KEY=your-secret-key-here
+```
+
+### 3. Utilizzo
+
+#### Opzione A: Web Interface (Consigliato)
+
+```bash
+# Avvia il server
+python api_flask.py
+
+# Apri il browser su: http://localhost:5000
+```
+
+#### Opzione B: CLI con Login
+
+```bash
+python main_with_login.py
+```
+
+#### Opzione C: CLI Semplice
+
+```bash
+python main.py
+```
+
+## 🌐 Web Interface
+
+L'interfaccia web offre:
+- ✅ Registrazione e login utenti
+- ✅ Chat interattiva con l'AI
+- ✅ Cronologia viaggi
+- ✅ Design responsive e moderno
+- ✅ Gestione sessioni sicura
+
+**Accedi a:** `http://localhost:5000`
+
+## 📡 API REST
+
+Il server Flask espone API REST complete:
+
+### Endpoints Principali
+
+```
+GET  /api/health              - Health check
+POST /api/auth/register       - Registrazione
+POST /api/auth/login          - Login
+POST /api/auth/logout         - Logout
+GET  /api/auth/status         - Stato autenticazione
+POST /api/travel/query        - Nuovo viaggio
+POST /api/travel/interact     - Interazione con piano
+POST /api/travel/finalize     - Finalizza viaggio
+GET  /api/history             - Cronologia viaggi
+GET  /api/trip/:id            - Dettagli viaggio
+```
+
+📖 **Documentazione completa:** `document/API_README.md`
+
+## 🗄️ Database
+
+Il progetto usa **SQLite** con 4 tabelle:
+
+1. **users** - Utenti registrati
+2. **trips** - Viaggi pianificati
+3. **plans** - Versioni dei piani
+4. **interactions** - Interazioni utente
+
+## 🧪 Test
+
+Esegui i test dell'API:
+
+```bash
+# Test completo
+python test/test_api.py
+
+# Test semplice (senza AI)
+python test/test_api_simple.py
+```
+
+## 🏗️ Architettura
+
+### Frontend → API → Business Logic → AI/Database
+
+```
+┌─────────────┐
+│  Browser    │
+│ (HTML/JS)   │
+└──────┬──────┘
+       │ HTTP
+       ↓
+┌─────────────┐
+│ Flask API   │
+│ (REST)      │
+└──────┬──────┘
+       │
+       ↓
+┌──────────────────┐
+│ SessionManager   │
+│ (Business Logic) │
+└──────┬───────────┘
+       │
+   ┌───┴───┬──────────┬──────────┐
+   ↓       ↓          ↓          ↓
+┌──────┐┌────┐┌────────┐┌──────────┐
+│SQLite││Auth││TripMgr ││Orchestr. │
+└──────┘└────┘└────────┘└────┬─────┘
+                             │
+                ┌────────────┴────┐
+                ↓                 ↓
+         ┌──────────┐      ┌──────────┐
+         │ OpenAI   │      │ Tavily   │
+         │ (GPT)    │      │ (Search) │
+         └──────────┘      └──────────┘
+```
+
+## 📚 Funzionalità
+
+### Agenti AI
+
+1. **QueryParser** - Analizza la richiesta dell'utente
+2. **DataCollector** - Raccoglie informazioni online
+3. **RAGManager** - Gestisce la knowledge base
+4. **PlanGenerator** - Genera il piano di viaggio
+
+### Interazioni Intelligenti
+
+L'AI classifica automaticamente le richieste in:
+- 🔧 **Modification** - Modifica al piano
+- ℹ️ **Information** - Richiesta informazioni
+- 🆕 **New Trip** - Nuovo viaggio
+- ✅ **Done** - Finalizza
+
+## 🔒 Sicurezza
+
+- Password hashate con SHA-256
+- Token di sessione sicuri
+- Validazione input lato server
+- SQL injection protection
+- CORS configurato
+
+## 📦 Deploy
+
+### Docker
+
+```dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "api_flask.py"]
+```
+
+### Heroku
+
+```bash
+echo "web: python api_flask.py" > Procfile
+heroku create travel-ai-app
+git push heroku main
+```
+
+## 🤝 Contribuire
+
+1. Fork del progetto
+2. Crea un branch (`git checkout -b feature/AmazingFeature`)
+3. Commit delle modifiche (`git commit -m 'Add feature'`)
+4. Push al branch (`git push origin feature/AmazingFeature`)
+5. Apri una Pull Request
+
+## 📄 Licenza
+
+MIT License - Sentiti libero di usare questo progetto!
+
+## 🐛 Troubleshooting
+
+### API non raggiungibile
+```bash
+# Verifica che il server sia attivo
+curl http://localhost:5000/api/health
+```
+
+### Errore "Non autenticato"
+- Assicurati di accedere tramite `http://localhost:5000` (non file://)
+- Apri la console browser (F12) per vedere i log di debug
+
+### Database locked
+```bash
+# Chiudi tutte le istanze dell'app
+# Elimina il file .db-journal se esiste
+```
+
+## 📞 Supporto
+
+Per domande o problemi:
+- 📖 Controlla la documentazione in `document/`
+- 🧪 Esegui i test in `test/`
+- 💬 Apri un issue su GitHub
+
+---
+
+**Fatto con ❤️ usando OpenAI GPT-4, LangChain e Flask**

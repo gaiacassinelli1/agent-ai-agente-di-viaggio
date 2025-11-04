@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 Travel AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌍 Agenzia di vIAggio</h1>
+            <p id="headerSubtitle">Il tuo assistente personale per viaggi</p>
+        </div>
+
+        <div class="content">
+            <!-- LOGIN/REGISTER SECTION -->
+            <div id="authSection" class="section active">
+                <div id="authMessage"></div>
+                
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="authUsername" placeholder="Inserisci username">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="authPassword" placeholder="Inserisci password">
+                </div>
+
+                <div class="form-group" id="emailGroup">
+                    <label>Email (opzionale)</label>
+                    <input type="email" id="authEmail" placeholder="Inserisci email">
+                </div>
+
+                <button class="btn" onclick="handleAuth()">Login</button>
+                <button class="btn btn-secondary" onclick="toggleAuthMode()">Passa a Registrazione</button>
+            </div>
+
+            <!-- TRAVEL SECTION -->
+            <div id="travelSection" class="section">
+                <div class="user-info">
+                    <span>👤 <strong id="currentUser"></strong></span>
+                    <button class="btn" style="width: auto; padding: 8px 20px;" onclick="logout()">Logout</button>
+                </div>
+
+                <div id="travelMessage"></div>
+
+                <div class="chat-container" id="chatContainer"></div>
+
+                <div class="form-group">
+                    <textarea id="userInput" placeholder="Descrivi il tuo viaggio o fai una richiesta..."></textarea>
+                </div>
+
+                <div class="button-group" style="display: flex; gap: 10px;">
+                    <button class="btn" onclick="sendMessage()" style="flex: 1;">Invia</button>
+                    <button class="btn btn-secondary" onclick="clearChat()" style="width: auto; padding: 8px 20px;">🗑️ Pulisci</button>
+                </div>
+                
+                <div class="quick-actions" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
+                    <button class="quick-btn" onclick="insertQuickText('Pianifica un viaggio di 3 giorni a Roma')">🏛️ Roma</button>
+                    <button class="quick-btn" onclick="insertQuickText('Suggerisci un weekend a Parigi')">🗼 Parigi</button>
+                    <button class="quick-btn" onclick="insertQuickText('Viaggio di lavoro a Milano')">💼 Milano</button>
+                    <button class="quick-btn" onclick="insertQuickText('Vacanza al mare in Grecia')">🏖️ Grecia</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
