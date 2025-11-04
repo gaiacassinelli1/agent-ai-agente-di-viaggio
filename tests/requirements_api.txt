@@ -1,0 +1,25 @@
+# Requirements for Flask API Backend
+# Install with: pip install -r requirements_api.txt
+
+# Web Framework
+Flask==3.0.0
+flask-cors==4.0.0
+
+# Production Server
+gunicorn==21.2.0
+
+# Session Management (for production)
+redis==5.0.1
+flask-session==0.5.0
+
+# Security
+python-dotenv==1.0.0
+
+# Database (already included in main requirements)
+# sqlite3 is built-in with Python
+
+# Optional: Rate Limiting
+Flask-Limiter==3.5.0
+
+# Optional: API Documentation
+flask-swagger-ui==4.11.1
