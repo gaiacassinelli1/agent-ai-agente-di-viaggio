@@ -6,8 +6,8 @@ Assistente di viaggio intelligente basato su AI che aiuta a pianificare viaggi p
 
 ```
 ai/
-├── 📄 main.py                      # Entry point CLI
-├── 📄 main_with_login.py          # Entry point CLI con autenticazione
+├── 📄 run.py                      # Entry point CLI
+├── 📄 run_with_login.py          # Entry point CLI con autenticazione
 ├── 📄 api_flask.py                # API REST Flask
 ├── 📄 web_interface.html          # Interfaccia web
 │
@@ -79,13 +79,13 @@ python api_flask.py
 #### Opzione B: CLI con Login
 
 ```bash
-python main_with_login.py
+python run_with_login.py
 ```
 
 #### Opzione C: CLI Semplice
 
 ```bash
-python main.py
+python run.py
 ```
 
 ## 🌐 Web Interface
@@ -270,3 +270,4 @@ Per domande o problemi:
 - [Barbara Geroli](https://github.com/BarbaraGeroli)
 - [Sharon Burgo](https://github.com/sharonburg)
 - [Mattia Stefanizzi](https://github.com/luxmattiastef)
+
