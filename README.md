@@ -9,7 +9,6 @@ ai/
 ├── 📄 run.py                      # Entry point CLI
 ├── 📄 run_with_login.py           # Entry point CLI con autenticazione
 ├── 📄 api_flask.py                # API REST Flask
-├── 📄 web_interface.html          # Interfaccia web
 │
 ├── 📂 src/                    
 │   ├── 📂 agents/                 # Agenti AI specializzati
@@ -277,5 +276,6 @@ Per domande o problemi:
 - [Barbara Geroli](https://github.com/BarbaraGeroli)
 - [Sharon Burgo](https://github.com/sharonburg)
 - [Mattia Stefanizzi](https://github.com/luxmattiastef)
+
 
 
