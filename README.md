@@ -31,6 +31,9 @@ ai/
 │   │
 │   └── 📂 utils/                 # Per exports
 │
+├── 📂 data/                      # File dei codici iata
+│   └── airports_iata.json
+|
 ├── 📂 tests/                     # File di test ed esempi
 │   ├── test_api.py
 │   ├── test_api_simple.py
@@ -42,7 +45,7 @@ ai/
 │   ├── app.js
 │   ├── config.js
 │   ├── index.html
-│   ├── styles.css
+│   └── styles.css
 │
 ├── 📂 documentation/             # Documentazione
 │   ├── API_README.md
@@ -276,6 +279,7 @@ Per domande o problemi:
 - [Barbara Geroli](https://github.com/BarbaraGeroli)
 - [Sharon Burgo](https://github.com/sharonburg)
 - [Mattia Stefanizzi](https://github.com/luxmattiastef)
+
 
 
 
