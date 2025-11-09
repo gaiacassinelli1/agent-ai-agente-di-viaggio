@@ -7,42 +7,49 @@ Assistente di viaggio intelligente basato su AI che aiuta a pianificare viaggi p
 ```
 ai/
 ├── 📄 run.py                      # Entry point CLI
-├── 📄 run_with_login.py          # Entry point CLI con autenticazione
+├── 📄 run_with_login.py           # Entry point CLI con autenticazione
 ├── 📄 api_flask.py                # API REST Flask
 ├── 📄 web_interface.html          # Interfaccia web
 │
-├── 📂 agents/                     # Agenti AI specializzati
-│   ├── QueryParser.py
-│   ├── DataCollector.py
-│   ├── RAGManager.py
-│   └── PlanGenerator.py
-│
-├── 📂 core/                       # Logica centrale
-│   ├── orchestrator.py            # Coordinatore degli agenti
-│   ├── session_manager.py         # Gestione sessioni utente
-│   └── config.py                  # Configurazioni
-│
-├── 📂 venv/                       # Virtual environment
-│   ├── 📂 login/                  # Sistema di autenticazione
+├── 📂 src/                    
+│   ├── 📂 agents/                 # Agenti AI specializzati
+│   |   ├── base_agent.py
+│   |   ├── data_collector.py
+│   |   ├── plan_generator.py
+|   |   ├── query_parser.py
+│   |   └── rag_manager.py
+│   |
+|   ├── 📂 core/                  # Logica centrale
+│   |   ├── orchestrator.py        # Coordinatore degli agenti
+│   |   ├── session_manager.py     # Gestione sessioni utente
+│   |   └── config.py              # Configurazioni
+│   |
+│   ├── 📂 auth/                  # Sistema di autenticazione
 │   │   ├── database.py            # Gestione database SQLite
 │   │   ├── auth_manager.py        # Autenticazione utenti
 │   │   ├── trip_manager.py        # Gestione viaggi
 │   │   └── auth_cli.py            # CLI per login
 │   │
-│   └── 📂 core/                   # Core duplicato (per imports)
+│   └── 📂 utils/                 # Per exports
 │
-├── 📂 test/                       # File di test ed esempi
+├── 📂 tests/                     # File di test ed esempi
 │   ├── test_api.py
 │   ├── test_api_simple.py
 │   ├── frontend_example_react.jsx
 │   ├── example_integration.py
 │   └── test_login.py
 │
-├── 📂 document/                   # Documentazione
+├── 📂 frontend/                  # File del sito web
+│   ├── app.js
+│   ├── config.js
+│   ├── index.html
+│   ├── styles.css
+│
+├── 📂 documentation/             # Documentazione
 │   ├── API_README.md
 │   └── GUIDA_FRONTEND.md
 │
-└── 📄 travel_assistant.db         # Database SQLite
+└── 📄 travel_assistant.db        # Database SQLite
 
 ```
 
@@ -270,4 +277,5 @@ Per domande o problemi:
 - [Barbara Geroli](https://github.com/BarbaraGeroli)
 - [Sharon Burgo](https://github.com/sharonburg)
 - [Mattia Stefanizzi](https://github.com/luxmattiastef)
+
 
