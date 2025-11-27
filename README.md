@@ -66,12 +66,39 @@ pip install -r requirements.txt
 
 ### 2. Configurazione
 
-Crea un file `.env` nella root del progetto:
+Crea un file `.env` nella root del progetto. Copia queste righe e inserisci le API keys:
 
 ```env
+=== OpenAI ===
 OPENAI_API_KEY=your-api-key-here
-TAVILY_API_KEY=your-tavily-key-here
-FLASK_SECRET_KEY=your-secret-key-here
+
+=== Flight Data (Amadeus) ===
+VOLI_API_KEY=your-api-key-here
+VOLI_API_SECRET=your-secret-key-here
+
+=== Weather ===
+OPENWEATHER_API_KEY=your-api-key-here
+
+=== Monuments (Google Places) ===
+MONUMENTS_API_KEY=your-api-key-here
+
+=== Events (Ticketmaster) ===
+TICKETMASTER_API_KEY=your-api-key-here
+
+=== GitHub (Optional, for higher rate limits) ===
+GITHUB_TOKEN=your-github-token-here
+
+# === Model Configuration (Optional) ===
+OPENAI_MODEL=gpt-3.5-turbo
+OPENAI_TEMPERATURE=0.7
+REQUEST_TIMEOUT=15
+
+# === RAG Configuration (Optional) ===
+CHUNK_SIZE=800
+CHUNK_OVERLAP=100
+RAG_TOP_K=5
+
+PYTHONIOENCODING=utf-8
 ```
 
 ### 3. Utilizzo
@@ -80,7 +107,7 @@ FLASK_SECRET_KEY=your-secret-key-here
 
 ```bash
 # Avvia il server
-python api_flask.py
+python flask_api.py
 
 # Apri il browser su: http://localhost:5000
 ```
@@ -108,6 +135,11 @@ L'interfaccia web offre:
 
 **Accedi a:** `http://localhost:5000`
 
+### Come risulta l'interfaccia web
+
+<img width="1902" height="999" alt="Screenshot 2025-11-27 142302" src="https://github.com/user-attachments/assets/e6f25646-1ddf-4f79-8d1d-f237c50906a1" />
+<img width="1905" height="993" alt="Screenshot 2025-11-27 142806" src="https://github.com/user-attachments/assets/add7b5bd-5489-49c3-9690-177520d1759e" />
+
 ## 📡 API REST
 
 Il server Flask espone API REST complete:
@@ -127,7 +159,7 @@ GET  /api/history             - Cronologia viaggi
 GET  /api/trip/:id            - Dettagli viaggio
 ```
 
-📖 **Documentazione completa:** `document/API_README.md`
+📖 **Documentazione completa:** `documentation/API_README.md`
 
 ## 🗄️ Database
 
@@ -279,6 +311,7 @@ Per domande o problemi:
 - [Barbara Geroli](https://github.com/BarbaraGeroli)
 - [Sharon Burgo](https://github.com/sharonburg)
 - [Mattia Stefanizzi](https://github.com/luxmattiastef)
+
 
 
 
