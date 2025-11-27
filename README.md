@@ -135,7 +135,7 @@ L'interfaccia web offre:
 
 **Accedi a:** `http://localhost:5000`
 
-### Come risulta l'interfaccia web
+#### Come risulta l'interfaccia web
 
 <img width="1902" height="999" alt="Screenshot 2025-11-27 142302" src="https://github.com/user-attachments/assets/e6f25646-1ddf-4f79-8d1d-f237c50906a1" />
 <img width="1905" height="993" alt="Screenshot 2025-11-27 142806" src="https://github.com/user-attachments/assets/add7b5bd-5489-49c3-9690-177520d1759e" />
@@ -311,6 +311,7 @@ Per domande o problemi:
 - [Barbara Geroli](https://github.com/BarbaraGeroli)
 - [Sharon Burgo](https://github.com/sharonburg)
 - [Mattia Stefanizzi](https://github.com/luxmattiastef)
+
 
 
 
